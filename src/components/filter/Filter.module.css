@@ -1,0 +1,9 @@
+.filterContainer {
+  margin-left: 25px;
+  display: flex;
+  flex-direction: column;
+}
+
+.filterInput {
+  max-width: 200px;
+}

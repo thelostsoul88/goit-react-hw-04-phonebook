@@ -1,0 +1,15 @@
+.contactItem {
+  margin-bottom: 10px;
+}
+
+.contactBtn {
+  margin-left: 10px;
+  background-color: red;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 1px 2px 0 rgb(0, 0, 0, 0.5);
+}
+
+.contactBtn:hover {
+  color: aliceblue;
+}
