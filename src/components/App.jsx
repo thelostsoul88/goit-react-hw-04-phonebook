@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
+import { toast, Toaster } from 'react-hot-toast';
 import { nanoid } from 'nanoid';
-import Notiflix from 'notiflix';
 import Form from './form/Form';
-import ContactList from './contacts/ContactsList';
 import Filter from './filter/Filter';
+import ContactList from './contacts/ContactsList';
 
 const PhoneBook = [
   { id: 'id-1', name: 'Rosie Simpson', number: '459-12-56' },
@@ -24,7 +24,10 @@ const App = () => {
 
   const handleUpdate = data =>
     contacts.some(el => el.name === data.name)
-      ? Notiflix.Notify.failure(`${data.name} is already in contacts.`)
+      ? toast.error('already in contact', {
+          duration: 1500,
+          position: 'top-right',
+        })
       : setContacts(prevState => [
           { name: data.name, number: data.number, id: nanoid() },
           ...prevState,
@@ -51,6 +54,7 @@ const App = () => {
         <Filter filter={filter} handleFilter={handleFilter} />
       )}
       <ContactList contacts={onFilterNames()} handleDelete={handleDelete} />
+      <Toaster />
     </>
   );
 };
